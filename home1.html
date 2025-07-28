@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const ROOM_ID = urlParams.get('roomId');
+    // console.log(ROOM_ID);
+  </script>
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+  <script src="/socket.io/socket.io.js" defer></script>
+  <!-- <script src="firebase.js" defer></script> -->
+  <script src="script.js" defer></script>
+  <title>Document</title>
+  <style>
+    body{
+      display: grid;
+    }
+
+    #video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 300px);
+      grid-auto-rows: 300px;
+      gap: 20px;
+      position: relative;
+    }
+    
+    video {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .myCanvas{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 300px;
+      height: 300px;
+      pointer-events: none; 
+    }
+
+    .chatbox{
+      position:absolute;
+      top: 0;
+      right: 0;
+      width: 30%;
+      height: 100%;
+      border: 1px solid black;
+      display: none;
+    }
+
+    .message_tag{
+      position:absolute;
+      bottom: 5%;
+      left: 3%;
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <div class="right">
+    <select id="videoResolutions">
+      <option value="720p">720p</option>
+      <option value="480p">480p</option>
+      <option value="360p">360p</option>
+    </select>
+    <butoon id="applyResolution">Apply</butoon>
+    <div id="video-grid"></div>
+    <button id="muteAudioBtn">Mute Audio</button>
+    <button id="muteVideoBtn">Disable Video</button>
+    <div class="record-buttons">
+      <button id="record_start">Start Recording</button>
+      <button id="record_stop">Stop Recording</button>
+    </div>
+    <h1>Adjust Microphone Sensitivity</h1>
+    <input type="range" id="sensitivitySlider" min="0" max="2" step="0.01" value="1">
+    <label for="sensitivitySlider">Sensitivity</label>
+    <button id="screenShare">Share Screen</button>
+    <h1 id="userCount"></h1>
+    <button id="raise_hand">Raise Hand</button>
+    <!-- <canvas id="annotationCanvas" style="position: absolute; top: 0; left: 0; pointer-events: none;"></canvas> -->
+    <button id="toggleAnnotate">Enable Annotations</button>
+    <h3 id="handraise_status"></h3>
+    <button id="chatboxButton">Chat Box</button>
+  </div>
+  <div class="chatbox" id="chatbox">
+    <div class="message_tag">
+      <input type="file" id="fileInput" multiple />
+      <input type="text" name="message_box" id="message_box" placeholder="Enter the message...">
+      <button id="send_message">send</button>
+    </div>
+  </div>
+</body>
+</html>
