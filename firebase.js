@@ -17,12 +17,12 @@ let userCount=0
 //   res.redirect(`/${uuidV4()}`)
 // })
 const firebaseConfig = {
-  apiKey: "AIzaSyCD-OxNfBkE9s9BthbKNfVZEkxRzGo9_jI",
-  authDomain: "video-chat-app-d596a.firebaseapp.com",
-  projectId: "video-chat-app-d596a",
-  storageBucket: "video-chat-app-d596a.firebasestorage.app",
-  messagingSenderId: "1098844354467",
-  appId: "1:1098844354467:web:d5fa3ae505dff212a68c16"
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: ""
 };
 const firebase_app=firebase.initializeApp(firebaseConfig)
 function uploadToFirebase(blob){
