@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+    <script src="/socket.io/socket.io.js" defer></script>
+    <title>Document</title>
+</head>
+<body>
+    <h2>Create a new Call</h2>
+    <button id="callButton">Create Call (offer)</button>
+    <input id="call_id"/>
+    <h2>Join a Call</h2>
+    <p>Answer the call from a different browser window or device</p>
+    <label for="username">User Name</label><input type="text" id="username">
+    <label for="callInput">Room ID</label><input id="callInput" />
+    <a href="" id="anchor"><button id="answerButton">Answer</button></a>
+    <script src="homeScript.js" defer></script>
+</body>
+</html>
